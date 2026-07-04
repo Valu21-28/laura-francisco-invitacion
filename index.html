@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Laura & Francisco</title>
+
 <style>
 body{margin:0;font-family:Arial;background:#fff7ec;color:#263b24;text-align:center}
-.hero{min-height:100vh;background:linear-gradient(#263b24,#6f7b54);color:white;display:flex;align-items:center;justify-content:center;padding:25px}
+.hero{min-height:100vh;background:linear-gradient(#0007,#0008),url('portada.png') center/cover no-repeat;color:white;display:flex;align-items:center;justify-content:center;padding:25px}
+.hero-box{background:rgba(0,0,0,.45);padding:35px;border-radius:25px}
 h1{font-size:45px}.script{font-family:cursive;font-size:45px;color:#ffd98a}
 .btn{background:#263b24;color:white;padding:14px 22px;border-radius:30px;text-decoration:none;display:inline-block;margin:8px;border:0;font-weight:bold}
 .gold{background:#b99352}
@@ -15,43 +17,57 @@ section{padding:25px;max-width:850px;margin:auto}
 .gift{background:#fff7ec;border:1px solid #d8c19c;border-radius:14px;padding:12px;margin:8px;text-align:left}
 </style>
 </head>
+
 <body>
 
 <div class="hero">
-<div>
-<p>TE INVITAMOS A NUESTRA</p>
-<h1>Inauguración</h1>
-<div class="script">de Casa ♡</div>
-<h2>Laura & Francisco</h2>
-<p>11 · 07 · 2026 desde las 17:00 hrs</p>
-<a class="btn gold" href="#confirmar">Confirmar asistencia</a>
-<a class="btn" href="#regalos">Ver regalos</a>
-</div>
+  <div class="hero-box">
+    <p>TE INVITAMOS A NUESTRA</p>
+    <h1>Inauguración</h1>
+    <div class="script">de Casa ♡</div>
+    <h2>Laura & Francisco</h2>
+    <p>11 · 07 · 2026 desde las 17:00 hrs</p>
+    <a class="btn gold" href="#confirmar">Confirmar asistencia</a>
+    <a class="btn" href="#regalos">Ver regalos</a>
+  </div>
 </div>
 
+<section>
+  <div class="card">
+    <h2>Detalles</h2>
+    <p>📅 11 de julio de 2026</p>
+    <p>🕔 Desde las 17:00 hrs</p>
+    <p>📍 Camino el oliveto 2184 parcela 46</p>
+    <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Camino%20el%20oliveto%202184%20parcela%2046">Abrir ubicación</a>
+  </div>
+</section>
+
 <section id="confirmar">
-<div class="card">
-<h2>Confirma tu asistencia</h2>
-<p>Presiona el botón y envía tu confirmación por WhatsApp.</p>
-<a class="btn gold" href="https://wa.me/56954542318?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco">Confirmar por WhatsApp</a>
-</div>
+  <div class="card">
+    <h2>Confirma tu asistencia</h2>
+    <p>Presiona el botón y envía tu confirmación por WhatsApp.</p>
+    <a class="btn gold" href="https://wa.me/56954542318?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco">Confirmar por WhatsApp</a>
+  </div>
 </section>
 
 <section id="regalos">
-<div class="card">
-<h2>Lista de regalos</h2>
-<p>Elige uno y avisa por WhatsApp para que no se repita 🎁</p>
-<div id="lista"></div>
-</div>
+  <div class="card">
+    <h2>Lista de regalos</h2>
+    <p>Elige uno y avisa por WhatsApp para que no se repita 🎁</p>
+    <div id="lista"></div>
+  </div>
 </section>
 
 <section>
-<h2>¡Gracias por acompañarnos! ♡</h2>
+  <h2>¡Gracias por acompañarnos! ♡</h2>
 </section>
 
 <script>
 const telefono="56954542318";
-const regalos=["Juguera","Tabla para cocinar plástica","Juego de servicio","Vasos","Utensilios de silicona","Rallador de cocina","Bowls","Tostador","Cuchillos buenos","Frascos","Contenedores para el refri","Pelador de papa","Cuchara de palo","Exprimidor","Basureros de baño","Paños de plato","Jarro para jugos","Panera","Colador","Uslero","Individuales","Copas","Vasos de Postres","Plancha de ropa","Organizadores de cocina","Ensaladeras","Toallas de cuerpo","Toallas secamanos baño","Dispensador de jabón para baños","Sábanas súper king","Cubreplumon súper king","Cubrecama súper king"];
+
+const regalos=[
+"Juguera","Tabla para cocinar plástica","Juego de servicio","Vasos","Utensilios de silicona","Rallador de cocina","Bowls","Tostador","Cuchillos buenos","Frascos","Contenedores para el refri","Pelador de papa","Cuchara de palo","Exprimidor","Basureros de baño","Paños de plato","Jarro para jugos","Panera","Colador","Uslero","Individuales","Copas","Vasos de Postres","Plancha de ropa","Organizadores de cocina","Ensaladeras","Toallas de cuerpo","Toallas secamanos baño","Dispensador de jabón para baños","Sábanas súper king","Cubreplumon súper king","Cubrecama súper king"
+];
 
 let contenedor=document.getElementById("lista");
 
