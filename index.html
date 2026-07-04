@@ -7,13 +7,11 @@
 <style>
 body{margin:0;font-family:Arial;background:#fff7ec;color:#263b24;text-align:center}
 .hero{min-height:100vh;background:linear-gradient(#263b24,#6f7b54);color:white;display:flex;align-items:center;justify-content:center;padding:25px}
-h1{font-size:45px} .script{font-family:cursive;font-size:45px;color:#ffd98a}
+h1{font-size:45px}.script{font-family:cursive;font-size:45px;color:#ffd98a}
 .btn{background:#263b24;color:white;padding:14px 22px;border-radius:30px;text-decoration:none;display:inline-block;margin:8px;border:0;font-weight:bold}
 .gold{background:#b99352}
 section{padding:25px;max-width:850px;margin:auto}
 .card{background:white;border-radius:22px;padding:22px;margin:18px 0;box-shadow:0 5px 20px #0002}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.item{background:#f1e4cf;border-radius:16px;padding:15px}
 .gift{background:#fff7ec;border:1px solid #d8c19c;border-radius:14px;padding:12px;margin:8px;text-align:left}
 </style>
 </head>
@@ -31,23 +29,11 @@ section{padding:25px;max-width:850px;margin:auto}
 </div>
 </div>
 
-<section>
-<div class="card">
-<h2>Detalles</h2>
-<div class="grid">
-<div class="item">📅<br><b>11 de julio 2026</b></div>
-<div class="item">🕔<br><b>Desde las 17:00 hrs</b></div>
-<div class="item">📍<br><b>Camino el oliveto 2184 parcela 46</b></div>
-</div>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Camino%20el%20oliveto%202184%20parcela%2046">Abrir ubicación</a>
-</div>
-</section>
-
 <section id="confirmar">
 <div class="card">
 <h2>Confirma tu asistencia</h2>
 <p>Presiona el botón y envía tu confirmación por WhatsApp.</p>
-<a class="btn gold" href="https://wa.me/?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco">Confirmar por WhatsApp</a>
+<a class="btn gold" href="https://wa.me/56954542318?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco">Confirmar por WhatsApp</a>
 </div>
 </section>
 
@@ -64,8 +50,18 @@ section{padding:25px;max-width:850px;margin:auto}
 </section>
 
 <script>
+const telefono="56954542318";
 const regalos=["Juguera","Tabla para cocinar plástica","Juego de servicio","Vasos","Utensilios de silicona","Rallador de cocina","Bowls","Tostador","Cuchillos buenos","Frascos","Contenedores para el refri","Pelador de papa","Cuchara de palo","Exprimidor","Basureros de baño","Paños de plato","Jarro para jugos","Panera","Colador","Uslero","Individuales","Copas","Vasos de Postres","Plancha de ropa","Organizadores de cocina","Ensaladeras","Toallas de cuerpo","Toallas secamanos baño","Dispensador de jabón para baños","Sábanas súper king","Cubreplumon súper king","Cubrecama súper king"];
-document.getElementById("lista").innerHTML=regalos.map(r=><div class="gift">🎁 <b>${r}</b><br><a class="btn" href="https://wa.me/?text=Hola,%20quiero%20reservar%20este%20regalo:%20${encodeURIComponent(r)}">Reservar</a></div>).join("");
+
+let contenedor=document.getElementById("lista");
+
+regalos.forEach(function(regalo){
+  let div=document.createElement("div");
+  div.className="gift";
+  let mensaje=encodeURIComponent("Hola, quiero reservar este regalo para la inauguración de casa de Laura y Francisco: " + regalo);
+  div.innerHTML="🎁 <b>"+regalo+"</b><br><a class='btn' href='https://wa.me/"+telefono+"?text="+mensaje+"'>Reservar</a>";
+  contenedor.appendChild(div);
+});
 </script>
 
 </body>
