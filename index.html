@@ -1,46 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Laura & Francisco</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#fff7ec;color:#263b24;text-align:center}
-img{width:100%;max-width:900px;display:block;margin:auto}
-.btn{background:#263b24;color:white;padding:14px 22px;border-radius:30px;text-decoration:none;display:inline-block;margin:8px;font-weight:bold}
-.gold{background:#b99352}
-section{padding:25px;max-width:850px;margin:auto}
-.card{background:white;border-radius:22px;padding:22px;margin:18px 0;box-shadow:0 5px 20px #0002}
-.gift{background:#fff7ec;border:1px solid #d8c19c;border-radius:14px;padding:12px;margin:8px;text-align:left}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff8f2;
+    color:#333;
+    text-align:center;
+}
+
+img.portada{
+    width:100%;
+    display:block;
+}
+
+section{
+    max-width:900px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+h2{
+    color:#6d5238;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    background:#8b6a47;
+    color:white;
+    padding:14px 24px;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.regalo{
+    background:#f8efe8;
+    border-radius:12px;
+    padding:12px;
+    margin:10px 0;
+}
 </style>
+
 </head>
 <body>
 
-<img src="portada.png" alt="Invitación Laura y Francisco">
+<img src="portada.png" class="portada">
 
-<section id="confirmar">
+<section>
+
 <div class="card">
+
 <h2>Confirma tu asistencia</h2>
-<a class="btn gold" href="https://wa.me/56954542318?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco">Confirmar por WhatsApp</a>
-</div>
-</section>
 
-<section id="regalos">
-<div class="card">
-<h2>Lista de regalos</h2>
-<p>Elige uno y avisa por WhatsApp para que no se repita 🎁</p>
-<div id="lista"></div>
+<p>Presiona el botón para confirmar por WhatsApp.</p>
+
+<a class="btn"
+href="https://wa.me/56954542318?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20inauguración%20de%20casa%20de%20Laura%20y%20Francisco.">
+Confirmar asistencia
+</a>
+
 </div>
+
+<div class="card">
+
+<h2>Lista de regalos</h2>
+
+<div id="lista"></div>
+
+</div>
+
 </section>
 
 <script>
+
 const telefono="56954542318";
-const regalos=["Juguera","Tabla para cocinar plástica","Juego de servicio","Vasos","Utensilios de silicona","Rallador de cocina","Bowls","Tostador","Cuchillos buenos","Frascos","Contenedores para el refri","Pelador de papa","Cuchara de palo","Exprimidor","Basureros de baño","Paños de plato","Jarro para jugos","Panera","Colador","Uslero","Individuales","Copas","Vasos de Postres","Plancha de ropa","Organizadores de cocina","Ensaladeras","Toallas de cuerpo","Toallas secamanos baño","Dispensador de jabón para baños","Sábanas súper king","Cubreplumon súper king","Cubrecama súper king"];
-let contenedor=document.getElementById("lista");
+
+const regalos=[
+"Juguera",
+"Tabla para cocinar plástica",
+"Juego de servicio",
+"Vasos",
+"Utensilios de silicona",
+"Rallador de cocina",
+"Bowls",
+"Tostador",
+"Cuchillos",
+"Frascos",
+"Contenedores",
+"Pelador",
+"Cuchara de palo",
+"Exprimidor",
+"Basurero baño",
+"Paños de cocina",
+"Jarro",
+"Panera",
+"Colador",
+"Uslero",
+"Individuales",
+"Copas",
+"Vasos de postre",
+"Plancha",
+"Organizadores",
+"Ensaladeras",
+"Toallas",
+"Sábanas Súper King",
+"Cubreplumón Súper King",
+"Cubrecama Súper King"
+];
+
+let lista=document.getElementById("lista");
+
 regalos.forEach(function(regalo){
-let mensaje=encodeURIComponent("Hola, quiero reservar este regalo para la inauguración de casa de Laura y Francisco: "+regalo);
-contenedor.innerHTML+=<div class="gift">🎁 <b>${regalo}</b><br><a class="btn" href="https://wa.me/${telefono}?text=${mensaje}">Reservar</a></div>;
+
+let mensaje=encodeURIComponent(
+"Hola, quiero regalar: "+regalo
+);
+
+lista.innerHTML+=`
+<div class="regalo">
+<b>🎁 ${regalo}</b><br><br>
+<a class="btn"
+href="https://wa.me/${telefono}?text=${mensaje}">
+Reservar regalo
+</a>
+</div>
+`;
+
 });
+
 </script>
 
 </body>
